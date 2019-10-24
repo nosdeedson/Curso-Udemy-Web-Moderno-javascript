@@ -2,3 +2,4 @@
 arquivos gerados durante o curso.
 Comando para rodar a aplicação pelo node: crtl+alt+n
 Teste: ver como funciona o github em varios computadores.
+Fiz modificações pelo linux e não aparecem.
