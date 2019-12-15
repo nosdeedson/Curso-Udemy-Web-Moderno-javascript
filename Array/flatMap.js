@@ -38,8 +38,9 @@ const notas = school.map( getTurmas)
 console.log(notas)
 Array.prototype.flatMap = function( callback){
     return Array.prototype.concat.apply([], this.map(callback))
+    // the "[]" is an object, and "this.map(callback)" will return an array of notas
 }
 
 console.log( school.flatMap(getTurmas))
 
-console.log(notas.apply(this, notas))
+
