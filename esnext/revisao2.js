@@ -72,3 +72,6 @@ const teste1 = (...valores) =>{
      return total
 }
 console.log( teste1(1,2,3,4,5,6))
+
+const a = 11, b=22, c =33
+console.log(teste1(a,b,c))
