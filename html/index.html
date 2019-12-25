@@ -16,6 +16,10 @@
             border: solid;
             border-color: blue;
             padding-right: 1%;
+            text-decoration: none;
+        }
+        a:hover{
+            color: black;
         }
     </style>
     <title>Exercício HTML</title>
@@ -31,13 +35,15 @@
         <a href wm-nav="exercicios/texto1.html">02 - Texto 1</a>
         <a href wm-nav="exercicios/texto2.html">03 - Texto 2</a>
         <a href wm-nav="exercicios/listas.html">01 - Lista 1</a>
+        <a href wm-nav="exercicios/listaAninhada.html">02 - Lista 2</a>
+        <a href wm-nav="exercicios/links.html">01 - Links 1</a>
+        <a href wm-nav="exercicios/tabelas.html">01 - Tabela 1</a>
     </nav>
     <section id="conteudo"></section>
     <footer>
         <h2>Curso de web moderno</h2>
     </footer>
     <script>
-
         document.querySelectorAll('[wm-nav]').forEach(link => {
             const conteudo = document.getElementById('conteudo')
 
