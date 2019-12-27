@@ -6,7 +6,43 @@
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        /* exemplos de seleletores
+         o CSS será aplicado somente a div aprovados
+        #aprovados
+         o CSS será aplicado a todos os elementos que tem a classe tag
+        .tag
+        aplica o CSS a todos os elementos
+        *{}
+        // aplica o CSS só na div dentro da div que tem o id aninhado
+        #aninhado > div
+        // qualquer section dentro de aninhado será selecionado
+        #aninhado section
+        seleciona irmãos qualquer p que tenha uma ul adjascente, será selecionado somente a ul o p não
+        p + ul
+        seleciona um ol que venha depois de um p, ou seja, o primeiro Ol dentro de uma mesma div ou outro elemento e mesmo não sendo adjascente.
+        p ~ ol
+        selecione todos os elementos que tenha a propriedade feira
+        [feira]{  }
+        seleciona os elementos que tem a propriedade feira com o valor casa, as que não tiverem este valor não serão selecionadas
+        [feira=casa]{  }
+        o ~ faz com que selecione todos os elementos que tenham a palavra escritorio com valor independente do segundo nome
+        [feira~=escritorio]{ }
+        todo elemento que tiver a propriedade que no seu valor tenha "sa" será selecionado
+        [feira*=sa]{   }
+        seleciona o primeiro span filho de um elemento, neste caso, pois o valor fa função é 1, se fosse dois selecionaria o segundo
+        span:nth-child(3){}
+        seleciona os filhos impares de section
+        section > :nth-child(odd){}
+        seleciona os filhos pares de seciotn
+        section > :nth-child(even){}
+        */
+        /* abaixo vai selecionar o segundo filho de section*/
+        section > span:nth-last-of-type(1){ 
+            color: #ffff00;
+            background-color: #ff7777;
+        }
+        /* A vírgula permite aplicar várias seleções, o espaço permite selecionar os descendentes do primeiro elemento */
+
     </style>
 </head>
 
@@ -29,7 +65,7 @@
             </ol>
             <div id='aninhado' class='tag'>
                 <div class="tag">
-                    <section class='tag'>
+                    <section class='tag nolabel'>
                         <span class='tag'>1</span>
                         <p class='tag'>2</p>
                         <span class='tag'>3</span>
