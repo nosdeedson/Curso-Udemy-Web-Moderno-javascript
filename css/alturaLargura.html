@@ -5,8 +5,33 @@
     <meta charset="UTF-8">
     <title>Altura e Largura</title>
     <style>
+        /*
+         Os elementos não aplicaram CSS no caso de valores 
+         relativos, exemplo, height: 50%, porque tanto a tag
+         html e body não consideram toda a tela do browser
+         eles consideram apenas a largura, a altura vai ser
+         proporcional aos elementos, com valores absolutos,
+         exemplo, heigth: 250px, a altura será considerada, pois
+         automaticamente o body e o html aumentaram .
+         Para que a autuara relativa seja considerada é necessário
+         aplicar altura de 100% ao html, ou se o elemento a qual
+         estamos aplicando a altura relativa tenha um pai com
+         a altura determinada com um valo absoluto, exemplo,
+         no código último item .
+         Para elementos que por padrão são "inline" estes devem 
+         ser setados como "display: block" para a altura poder ser
+         alterada .
+         Para verificar os CSS padrões dos elementos use a ferramenta
+         de desenvolvedor do browser .
+         O browser considera um espaço em branco entre as tags
+         nas quebras de linhas e isto pode causar um problema
+         quando usamos o "display: inline-block; " 
+        
+        */
+        
         body {
             font-size: 40px;
+            margin: 0;
             background-color: coral;
         }
 
@@ -17,12 +42,42 @@
         span {
             background-color: dodgerblue;
         }
+        span, div{
+            /* a altura é indiferente no span por se tratar de um elemento inline*/
+            width: 50%;
+            /*
+                no browser percebemos os elementos não cabem na mesma linha mesmo estando
+                com largura de 50% o browser considera um espaço entre a div
+                e o span isto ocorre devido a quebra de linha no código html entre os dois elementos
+                e devido o uso do "inline-block" nos dois elementos,
+                para corrigir este problema basta deixar a div e o
+                span na mesma linha sem espaços
+            */
+            height: 250px;/*só funciona se o html estiver com 100% de altura*/
+            height: 50%;
+            display: inline-block;
+        }
+        div.pai{
+            height: 250px;
+            width: 100%;
+            border: solid 3px black;
+        }
+        div.filho{
+            height: 50%;
+            width: 50%;
+            margin: 5px;
+            border: inherit;
+        }
+ 
+        
     </style>
 </head>
 
 <body>
-    <div>Título</div>
-    <span>Subtítulo</span>
+    <div>Título</div><span>Subtítulo</span>
+    <div class="pai">
+        <div class="filho"></div>
+    </div>
 </body>
 
 </html>

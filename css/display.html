@@ -5,7 +5,36 @@
     <meta charset="UTF-8">
     <title>Display</title>
     <style>
-        /* ... */
+        body{
+            font-size: 40px;
+            color: fff;
+            background-color: orange;
+        }
+        ul{padding: 0;}
+        div{ background-color: seagreen;}
+        span{background-color: dodgerblue;}
+        li{ background-color: purple;}
+        div, span, li{ 
+            width: 50%;/* os dois estilos não vão ser aplicados apenas o último, 
+            só para exemplificar como o span não é afetado por nenhum dos comandos*/
+            width: 200px;
+            /* a altura é o mesmo caso da largura*/
+            height: 80px;
+            /* o padding muda o estilo do span*/
+            padding-top: 30px;
+            text-align: center;
+            /* display: block; */
+            /* o display: block afeta todos os elementos e cada um fica em uma linha,
+            e agora o span tem as propriedades altura e largura */
+            /* deixa de ser em bloco para ser inline*/
+            /* display: inline; */
+            /* todos os elementos estão em uma única linha exceto o ul
+            que por padrão é display: block, mas os li pegaram o CSS inline .
+            o display inline desabilita mudanças na altura e largura
+            apenas o padding e margin funcionam*/
+            display: inline-block;
+            /* o inline-block permite mudanças na altura e largura*/
+        }
     </style>
 </head>
 
