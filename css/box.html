@@ -5,7 +5,29 @@
     <meta charset="UTF-8">
     <title>Box Model</title>
     <style>
-        /* ... */
+        body{ 
+            font-size: 80px;
+            margin: 0;
+        }
+        .c1{ 
+            background-color: orange;
+        }
+        .c2{ 
+            background-color: skyblue;
+        }
+        .c3{
+             background-color: tomato;
+        }
+        div{
+            /* o padding fica entre o conteúdo e a borda, ou seja, o tamanho do elemento vai ser o conteúdo mais o padding*/
+            float: left;
+            padding-top: 100px; /* aplica o valor só ao top*/
+            padding: 10px 50px 100px 150px;/* aplica um valor específico para cada lado*/
+            padding: 10px 50px; /* aplica o primeiro valor ao top e ao bottom e o segundo ao rigth e left*/
+            padding: 50px; /* aplica o valor do 4 lados*/
+            margin: 20px 50px;/* o margin é o espaçamento entre os elementos de uma página, a distância entre estes*/
+            border: solid 5px black;
+        }
     </style>
 </head>
 
