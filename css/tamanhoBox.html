@@ -4,14 +4,42 @@
     <meta charset="UTF-8">
     <title>Tamanho Box</title>
     <style>
+        /*
+            Uma solução para o problema extrapolação da largura do browse pode ser resolvida usando o CSS abaixo,
+            feito isso todos os elementos inseridos na páginas vai respeitar a largura da página.
+            Nota: o asterisco é um seletor universal. 
+        */
+        *{
+            box-sizing: border-box;
+        }
         body {
             font-size: 45px;
+            margin: 0;
+        }
+        div{
+            background-color: deepskyblue;
+            width: 100%;
+            height: 300px;
+            padding: 100px;
+            /* margin: 5px; */
+            border: solid 20px black ;
+            /*
+             O comando CSS acima faz com que um elemento respeite o largura do browser, sem este comando
+             a largura não é respeitada quando aplicamos width de 100% e aplicamos um padding ou um margin
+             porque o elemento vai ocupar 100% da largura mais o padding ou marging.
+             O segundo comando que poderia fazer limitar o conteúdo dentro do elemento é o 
+             "box-sizing: content-box;" mas este faz o elemento caber no box (linha) se aplicarmos o padding 
+             ou margin o problema acontecerá pois estes comandos farão o tamanho do conteúdo aumentar
+            */
         }
     </style>
 </head>
 <body>
     <div>
         O tamanho do Box é...
+    </div>
+    <div>
+        Só para confirmar o efeito!!!!
     </div>
 </body>
 </html>
