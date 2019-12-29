@@ -4,7 +4,24 @@
     <meta charset="UTF-8">
     <title>Unidades #02</title>
     <style>
-        /* ... */
+        .fora{
+            position: relative;
+            background-color: orange;
+            height: 400px;
+            width: 400px;
+            padding: 50px;
+        }
+
+        .dentro{
+            background-color: mediumvioletred;
+            height: 100px;
+            width: 100%;
+            position: static; /* ocupa o espaço do conteúdo, neste caso do elemento pai*/
+            position: relative; /* ocupa o espaço do conteúdo, neste caso do elemento pai*/
+            position: absolute; /* ocupa o espaço do conteúdo + o padding, neste caso vai extrapolar a área do elemento pai*/
+            position: fixed; /* considera o tamanho da janela do browse, desconsidera o tamanho do elemento pai*/
+            
+        }
     </style>
 </head>
 <body>
