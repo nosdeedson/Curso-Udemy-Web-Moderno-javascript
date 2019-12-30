@@ -36,9 +36,10 @@
             padding: 10px 15px;
         }
         
-        .menu a:hover {
+        .menu a:hover,
+        .menu a.selected{
             background-color: #4faddb;
-            color: #000;
+            color: black;
         }
         
         .cabecalho .botao {
@@ -54,6 +55,24 @@
         /* ==================== */
         /* Solução com Flex Box */
         /* ==================== */
+        .cabecalho{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+      
+        
+        .menu{
+            flex-grow: 10;
+            
+        }
+        .menu ul{
+            display: flex;
+            
+        }
+       .menu li{
+           margin: 0 10px;
+       }
     </style>
 </head>
 
@@ -86,5 +105,15 @@
         </aside>
     </header>
 </body>
-
+<script>
+    window.onhashchange = function(e){
+            const oldURL = e.oldURL.split('#')[1]
+            const newURL = e.newURL.split('#')[1]
+            console.log(oldURL, newURL)
+            const oldMenu = document.querySelector(`.menu a[href='${oldURL}']`)
+            const newMenu = document.querySelector(`.menu a[href='${newURL}']`)
+            oldMenu && oldMenu.classList.remove('selected')
+            newMenu && newMenu.classList.add('selected')
+        }
+</script>
 </html>
