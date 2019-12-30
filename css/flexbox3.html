@@ -6,7 +6,26 @@
     <title>Flexbox #03</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .flex-container{
+            display: flex;
+            flex-direction: row; /*valor padrão*/
+        }
+        .flex-container div{
+            flex-basis: 100px; /*forma oficial de definir o tamanho do elemento no main-axis*/
+            width: 300px;
+        }
+        /* Na linha 15 o width não tem efeito algum, porque o flex-basis tem um peso maior.
+            Mas se o flex-direction esitver setado como colunm o valor de width é o aplicado, ou seja, não
+            gera conflito pois o flex-basis é aplicado ao main-axis, que poder ser o eixo horizontal
+            (flex-direction= row) ou o eixo vertical (flex-direction= column)
+        */
+        .flex-container div:nth-child(4){
+            /* grow shrink basis */
+
+            flex: 3 6 100px;
+            /* o ultimo elemento tem um peso 3 para grow e 6 para shrink */
+            /* flex-basis representa a largura para row ou a altura para column */
+        }
     </style>
 </head>
 
