@@ -24,14 +24,28 @@
     <h1>Formulário</h1>
     <form name="pesquisa" action="http://www.google.com.br/search">
         <input type="text" name="q" placeholder="Digite o termo...">
+        <!-- os valores de name ( "q" e "hl") são valores que o google precisa para realizar a pesquisa
+        qualquer valor diferente não vai funcionar -->
         <select name="hl">
             <option value="pt-br">Português (Brasil)</option>
             <option value="en-us">Inglês (Americano)</option>
         </select>
         <button>Pesquisar</button>
-    </form>
+    </form>[
+    <form name="texte" action=""></form>
     <script>
-        // ...
+        console.log( "1",document.forms)
+        console.log("2",document.forms[0])
+        //console.log(document.forms[1]) retorna undefined
+        console.log("3", document.getElementsByName('pesquisa'))
+        console.log("4", document.getElementsByTagName('form'))// 
+        console.log('5', document.pesquisa ) // pesquisa é o valor atribuído a uma propriedade  de um elemento da página
+        console.log('6', document.texte) // vale só para form
+        console.log('7', document.pesquisa.q)
+        // para mudar o valor da tag input 
+        //document.pesquisa.q.value ='linux'
+        //document.pesquisa.q.placeholder ="Sua pesquisa"
+
     </script>
 </body>
 

@@ -10,7 +10,44 @@
     <div>Segundo</div>
     <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
     <script>              
-        // ...
+        document.querySelector('#primeiro').classList.add('destaque')
+        //const corpo = document.querySelector('.conteudo')
+        //corpo.style.backgroundColor ='white'
+        const selecionar = seletor=>{
+            document.querySelectorAll(seletor).forEach( elemento => elemento.classList.add('destaque'))
+        }
+        // o document.queryselector.. retorna o NODELIST tem que ser transformado em um array
+        // mas este NODELIST tem o foreach, as outras funções não (Map, filter etc)
+        // como transformar em array
+        const vetor = document.querySelectorAll('div')
+        const arrayVetor = Array.from(vetor) //ou
+        const arrayVetor2 = [...vetor]
+        arrayVetor.forEach( elemento => console.log(elemento))
+        arrayVetor2.forEach( elemento => console.log( elemento))
+        const deselecionar = seletor=>{
+            document.querySelectorAll(seletor).forEach( elemento => elemento.classList.remove('destaque'))
+        }
+
+        selecionar('div')
+        deselecionar('div')
+        selecionar('.ultimo')
+        selecionar('#primeiro')
+        deselecionar('.terceiro , .ultimo')
+
+        deselecionar('*')
+        selecionar(':not(#primeiro)')
+        deselecionar('*')
+        selecionar(':nth-child(2)')
+        deselecionar('*')
+        selecionar(':nth-child(1)')
+        deselecionar('*')
+        selecionar('div:nth-of-type(3)')// seleciona o terceiro elemento do tipo div
+        deselecionar('*')
+        selecionar('div:nth-of-type(1)')// seleciona o primeiro elemento do tipo div
+        deselecionar('*')
+        selecionar('span:nth-of-type(1)')// seleciona o primeiro elemento do tipo span
+        deselecionar('*')
+        selecionar('[wb-attrib]')
     </script>
 </body>
 </html>
