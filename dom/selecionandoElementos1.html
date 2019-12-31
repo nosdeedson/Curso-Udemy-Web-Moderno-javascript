@@ -10,7 +10,32 @@
     <div>Segundo</div>
     <div class="terceiro ultimo">.terceiro .ultimo</div>
     <script>              
-        // ...
+        document.getElementById('primeiro').classList.add('destaque')
+        
+        const divs = document.getElementsByTagName('div')
+        Array.from(divs).forEach(elemento =>{
+            elemento.classList.remove('destaque')
+        })
+
+        const divArray = [...divs]
+        divArray.forEach(elemento=> elemento.classList.add('destaque'))
+
+        const divClasse = document.getElementsByClassName('ultimo')
+
+        const classeArray = [...divClasse]
+        classeArray.forEach( elemento => elemento.classList.remove('destaque'))
+
+        const elemento = document.getElementsByClassName('conteudo')
+        Array.from(elemento).forEach( e => e.style.backgroundColor = 'white')
+       // lembre-se o comando document.getElement... devolve um HTMLcolections que
+       // tem que ser convertido em um array usando Array.from(retorno) ou ( const nome_variável = [...HTMLColections])
+        const e = document.getElementsByClassName('ultimo')
+
+        Array.from(e).forEach( ele => {
+            ele.style.backgroundColor = '#ccc'
+            ele.style.color = 'black'
+        })
+
     </script>
 </body>
 </html>
