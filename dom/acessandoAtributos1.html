@@ -15,7 +15,27 @@
         <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
     </div>
     <script>
-        // ...
+        const img = document.querySelector('img')
+        console.log('getAtribute', img.getAttribute('src'))
+        console.log('src', img.src)
+        console.log('"[src]"', img['src'])
+        console.log('"[alt]"', img['alt'])
+        console.log("nodevalue", img.alt)
+        console.log("nodetype", img.nodeType)
+        console.log("nodename", img.nodeName)
+
+        const atributoSRC = img.getAttributeNode('src')
+        console.log("node name", atributoSRC.nodeName)
+        console.log(" node type", atributoSRC.nodeType)
+        console.log( ' valor', atributoSRC.nodeValue)
+
+        const atbLink = document.querySelector('a')
+        console.log("href", atbLink.href)
+        console.log(" primeiro filho", atbLink.firstChild.nodeType)
+        atbLink.firstChild.nodeValue = 'jose'
+        // mudar o valor só quando for texto a forma mais comum sesgue abaixo
+        atbLink.innerHTML = 'novo texto'
+        
     </script>
 </body>
 

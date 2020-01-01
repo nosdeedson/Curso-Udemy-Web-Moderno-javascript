@@ -17,7 +17,28 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        // para uma melhor performace deve-se usar o 'id'
+        const lista1 = document.getElementById('compras') // ou
+        const lista2 = document.querySelector('#compras')
+        console.log(lista2)
+        console.log("childnodes", lista.childNodes)// pega os elementos e as quebra de linhas
+        console.log("conta os elementos despresando as quebra de linha", lista.childElementCount)
+        console.log("pega só os elementos", lista.children)// pega apenas os elementos
+        console.log("pega o valor do atributo", lista.getAttribute('destino'))//neste caso de destino
+        console.log("pega o valor do atributo", lista.getAttribute('data-urgencia'))//neste caso de data-urgencia
+        console.log("id", lista.id)// pega o id, ou seja, seu valor
+
+        console.log(" existe o atributo", lista.hasAttribute('destino'))
+        lista.setAttribute('destino', 'empresa')
+        console.log("mudando o valor do atributo para", lista.getAttribute('destino'))
+        // colocando um atributo inexistente
+        lista.setAttribute('status', 'aberto')
+        console.log("novo atributo", lista.getAttribute('status'))
+        //lista.remove('destino')// com esta linha eu removo a ul da aplicação
+        lista.removeAttribute('destino')
+        console.log(" existe o atributo", lista.getAttribute('destino'))
+
     </script>
 </body>
 
