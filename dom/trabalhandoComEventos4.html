@@ -10,7 +10,7 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         form input,
         form select,
         form button {
@@ -25,12 +25,49 @@
     <form name="pesquisa" action="http://www.google.com.br/search">
         <input type="text" name="q" placeholder="Digite o termo...">
         <select name="hl">
-                <option value="pt-br">Português (Brasil)</option>
-                <option value="en-us">Inglês (Americano)</option>
-            </select>
+            <option value="pt-br">Português (Brasil)</option>
+            <option value="en-us">Inglês (Americano)</option>
+        </select>
         <button wm-submit>Pesquisar</button>
     </form>
     <script>
-        // ...
+        //const botao = document.querySelector('[wm-submit]')
+        /*
+        botao.onclick = function(evento){
+            evento.preventDefault()
+            const formulario = evento.target.parentNode 
+            // o evento é do botão tenho que pegar o pai, que no caso é o form
+            const formDados = new FormData(formulario)
+
+            formDados.append('ajax', true)
+
+            console.log(formDados.get('q'))
+
+            console.log(formDados.has('hl'))
+
+            for( let dado of formDados){
+                console.log(dado)
+            }
+        }
+        */
+        // outro forma 
+        const formulario = document.forms[0]
+
+        formulario.onsubmit = function (envento) {
+            evento.preventDefault()
+            const form = evento.target // não precisa do parentNode porque agora estou pegando o formulário
+            const novoFormulario = new FormData(form)
+
+            novoFormulario.append('ajax', true)
+            console.log(novoFormulario.get('q'))
+
+            console.log(novoFormulario.has('hl'))
+
+            for (let dado of novoFormulario) {
+                console.log(dado)
+            }
+
+        }
+
     </script>
 </body>

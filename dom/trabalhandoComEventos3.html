@@ -33,6 +33,7 @@
             vertical-align: middle;
             text-align: center;
         }
+        
     </style>
 </head>
 
@@ -44,8 +45,32 @@
         <div class="item">4</div>
     </div>
     <div class="direita" wm-dropzone></div>
+    
     <script>
-        // ...
+        const itens = document.querySelectorAll('[wm-dropzone] .item')
+        
+        itens.forEach( (item, index)=>{
+            item.draggable = true
+            item.id = item.id || `draggable-item${index}`
+            // esta função abaixo seta qual elemento está sendo arrastado
+            item.ondragstart = e =>{
+                e.dataTransfer.setData('item-id', e.target.id)
+            }
+        })
+        const dropzones = document.querySelectorAll('[wm-dropzone]')
+        dropzones.forEach( dropzone =>{
+            // esta função abaixo pega o elemento setado na linha 54 acima e faz o frop na div a direita
+            dropzone.ondragover = e => e.preventDefault()
+            dropzone.ondrop = function( e){
+                const id = e.dataTransfer.getData('item-id')
+                const item = document.getElementById(id)
+               // e.target.appendChild(item)
+                // com a linha acima é possível colocar uma div dentro da outra, porque estou usando  e.target
+                // com a linha abaixo posso apenas troca entre as divs que dividem a tela
+                dropzone.appendChild(item)
+            }
+        })
+        
     </script>
 </body>
 
