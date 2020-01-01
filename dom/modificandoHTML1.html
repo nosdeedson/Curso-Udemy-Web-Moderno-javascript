@@ -9,7 +9,51 @@
 
 <body class='conteudo exercicio'>
     <script>
-        // ...
+        
+        const corpo = document.querySelector('body') 
+        
+        const dv1 = document.createElement('div')
+        dv1.classList.add('destaque')
+        dv1.innerHTML= 'Primeira div'
+        corpo.appendChild(dv1)
+
+        const div2 = document.createElement('div')
+        div2.setAttribute('wm-atributo', 'valor')
+        div2.innerHTML= 'segunda div'
+        corpo.appendChild(div2)
+
+        const paragrafo = document.createElement('p')
+        paragrafo.innerHTML= 'terceira div'
+
+        const div3 = document.createElement('div')
+        div3.appendChild(paragrafo)
+
+        corpo.appendChild(div3)
+        const texto = document.createElement("Antes...")
+        div3.insertBefore(document.createTextNode('antes..'), div3.childNodes[0])
+        const text1 = document.createTextNode("depois...")
+        div3.insertBefore(text1, div3.childNodes[2])
+        const text2 = document.createTextNode("teste texto")
+        div3.insertBefore(text2, div3.childNodes[2])
+
+        const div4 = div3.cloneNode(true)// clona os filhos também
+
+        corpo.appendChild(div4)
+
+        const div5 = div2.cloneNode(false)// clona só o elemento
+
+        corpo.appendChild(div5)
+
+        const para = document.createElement('p')
+
+        para.innerHTML = ' paragrafo não vazio'
+
+        corpo.append(para)// coloca na ultima posição
+
+        corpo.removeChild(div3)
+        corpo.removeChild(div5)
+        para.remove()// o elemento se autoremove
+ 
     </script>
 </body>
 

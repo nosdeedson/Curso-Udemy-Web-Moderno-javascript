@@ -8,11 +8,28 @@
 </head>
 
 <body class='conteudo exercicio'>
+    
     <div>
         <p>Texto Inicial</p>
     </div>
     <script>
-        // ...
+        const div = document.querySelector('div')
+        div.innerHTML ='texto alterado'
+        const paragrafo = document.createElement('p')
+        paragrafo.innerHTML= "agora é um paragrafo <br>"
+        //div.outerHTML= paragrafo // não funciona
+        //div.outerHTML = 'somente texto' raramente usado
+
+        div.insertAdjacentHTML('beforebegin', '<p> antes da div tem um parágrafo</p>')
+        div.insertAdjacentHTML('afterbegin', '<p> dentro da div antes do texto</p>')
+        div.insertAdjacentText('afterbegin', 'na onde veremos primeiro item')
+        div.insertAdjacentHTML('beforeend', '<p>ultimo elemento paragrafo</p>')
+        div.insertAdjacentHTML('afterend', '<p>eu sou um parágrafo fora da div</p>')
+
+        console.log(div.innerHTML)// devolve tudo que está detro do elemento ( texto e outros elementos)
+        console.log(div.innerText) // devolve só os textos
+        console.log(paragrafo.innerHTML)
+        console.log(paragrafo.innerText)
     </script>
 </body>
 
