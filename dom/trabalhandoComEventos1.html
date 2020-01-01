@@ -8,10 +8,25 @@
 </head>
 
 <body class="conteudo exercicio">
-    <div>
-        <a href="https://google.com.br">Google</a>
+    <div> 
+        <!-- onclick="navegarEmCincoSegudos(event)" uma das alternativas -->
+        <a wm-esperando href="https://google.com.br" target="blank" >Google</a> 
+        <!-- tem que usar a palavara event -->
     </div>
     <script>
-        // ...
+        function navegarEmCincoSegudos(evento){
+            evento.preventDefault()
+            console.log("aguarde...")
+            setTimeout(()=> {
+                const link = evento.target // targer é o elemento html que disparou o evento
+                window.location.href = link.href 
+            }, 5000)
+        }
+        // uma forma
+        //const a = document.querySelector('a')
+        //a.onclick = navegarEmCincoSegudos
+        // outra
+        const a = document.querySelector('[wm-esperando]')
+        a.onclick = navegarEmCincoSegudos
     </script>
 </body>
