@@ -51,5 +51,90 @@ function ParDeBarreiras( altura, abertura, x){
     
 }
 
-const b = new ParDeBarreiras(700, 300, 400)
-document.querySelector('[wm-flappy]').appendChild(b.elemento)
+// const b = new ParDeBarreiras(700, 300, 400)
+// document.querySelector('[wm-flappy]').appendChild(b.elemento)
+function Barreiras( altura, largura, abertura, espaco, notificarPonto){
+    // espaco é o valor em pixel entre os pares de barreiras
+    this.pares =[
+        new ParDeBarreiras( altura, abertura, largura),
+        new ParDeBarreiras( altura, abertura, largura + espaco),
+        new ParDeBarreiras( altura, abertura, largura + espaco * 2),
+        new ParDeBarreiras( altura, abertura, largura + espaco * 3)
+    ]
+    const deslocamentoEmPixel = 3
+    this.animar = () =>{
+        
+        this.pares.forEach(par => {
+            par.setX(par.getX() - deslocamentoEmPixel)
+            
+            // quando o elemento sair da área do jogo
+            if(par.getX() < -par.getLargura() ){
+                par.setX( par.getX() + espaco * this.pares.length)
+                par.sortearAbertura()
+            }
+
+            const meio = largura / 2 // quando a barreira passa pelo meio incrementa a pontuação
+            const cruzouMeio = par.getX() + deslocamentoEmPixel >= meio && par.getX() < meio
+            //if(cruzouMeio)
+              //  notificarPonto()
+        });
+    }
+
+}
+
+function Passaro(alturaJogo){
+    let voando = false
+    this.elemento = novoElemento('img', 'passaro')
+    this.elemento.src = 'imgs/passaro.png'
+    this.getY = () => parseInt( this.elemento.style.bottom.split('px')[0])
+    this.setY = y => this.elemento.style.bottom = `${y}px`
+
+    window.onkeydown = e => voando = true
+    window.onkeyup = e => voando = false
+
+    this.animar = () => {
+        const novoY = this.getY() + (voando ? 8 : -5)
+        let alturaMaxima = alturaJogo - this.elemento.clientHeight
+        console.log(alturaMaxima)
+        if(novoY <= 0 ){
+            this.setY(0)
+        }else if(novoY >= alturaMaxima){
+            this.setY(alturaMaxima)
+        }
+        else{
+            this.setY(novoY)
+        }
+    }
+
+    this.setY( alturaJogo -10)
+}
+
+
+const barreiras = new Barreiras(700, 1200, 350, 400)
+const areaDoJogo = document.querySelector('[wm-flappy]')
+const bird = new Passaro(700)
+areaDoJogo.appendChild(bird.elemento)
+barreiras.pares.forEach( par => areaDoJogo.appendChild(par.elemento))
+
+setInterval(() => {
+    barreiras.animar()
+    bird.animar()
+}, 20);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
