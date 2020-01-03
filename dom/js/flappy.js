@@ -1,3 +1,5 @@
+
+
 function novoElemento( tagName, className){
     const elemento = document.createElement(tagName)
     elemento.className= className
@@ -78,6 +80,7 @@ function Barreiras( altura, largura, abertura, espaco, notificarPonto){
             if(cruzouMeio){
                notificarPonto()
             }
+            
         });
     }
 
@@ -147,35 +150,28 @@ function colidiu( passaro, barreiras){
 //     bird.animar()
 // }, 20);
 
-function Progresso(){
-    this.elemento = novoElemento('span', 'progresso')
-    this.atualizarPontos = pontos => {
-        this.elemento.innerHTML = pontos
-    }
-
-    this.atualizarPontos(0)
-}
-
 // A variável foi declarada fora pois quanto maior os pontos maior a velocidade
 // A variável velocidade deve ser decrementada para por isto está aqui
-var pontos = 0
-var velocidade = 20
-var distanciaBarreiras = 250
+let pontos = 0
+let velocidade = 20
+let distanciaBarreiras = 250
 
-function Speed(){
-    this.elemento = novoElemento('span', 'velocidade')
-    this.atualizaVelocidade = (velocidade) => this.elemento.innerHTML = `SPEED: ${velocidade}`
-    this.atualizaVelocidade(velocidade)
+
+function Progresso(){
+    this.elemento = novoElemento('span', 'progresso')
+    this.atualizarPontos = () => this.elemento.innerHTML = pontos
+
+    this.atualizarPontos(pontos)
 }
 
 function FlappyBird(){
-    
+    console.log( "start")
     const areaDoJogo = document.querySelector('[wm-flappy]')
     const altura = areaDoJogo.clientHeight
     const largura = areaDoJogo.clientWidth
 
     const progresso = new Progresso()
-    
+
     const barreiras = new Barreiras( altura, largura, distanciaBarreiras, 400, 
         () => progresso.atualizarPontos(++pontos)
     )
@@ -191,7 +187,7 @@ function FlappyBird(){
         const temporizador = setInterval( () =>{
             barreiras.animar()
             passaro.animar()
-            
+        
             if(colidiu(passaro, barreiras)){
                 clearInterval(temporizador)
                 alert("PRESSIONE F5 PARA REINICIAR O JOGO")

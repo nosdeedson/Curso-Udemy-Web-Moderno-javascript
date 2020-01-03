@@ -64,10 +64,10 @@
 
 .velocidade{
     position: absolute;
-    top: 70px;
+    top: 10px;
     left: 10px;
     font-family: 'Pixel';
-    font-size: 70px;
+    font-size: 40px;
     z-index: 100;
 }
 
