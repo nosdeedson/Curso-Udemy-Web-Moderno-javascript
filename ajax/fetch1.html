@@ -11,6 +11,20 @@
     <h1>Estados</h1>
 
     <script>
-        // ...
+        const url = 'dados/estados.json'
+        fetch(url)
+            .then(resposta => resposta.json())
+            .then(estados => {
+                const itens = estados.reduce(
+                    (html, estado) => html + `<li>ID: ${estado.id}, Nome: ${estado.nome}, Sigla: ${estado.sigla}</li>`, ''
+                )
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`)
+            })
+            .catch( (erro) => {
+                const paragrafo = document.createElement('p')
+                paragrafo.innerHTML= "ARQUIVO NÃO ENCONTRADO"
+                //paragrafo.innerHTML = `${erro}` // resposta para desenvolvedores
+                document.body.appendChild(paragrafo)
+            })
     </script>
 </body>

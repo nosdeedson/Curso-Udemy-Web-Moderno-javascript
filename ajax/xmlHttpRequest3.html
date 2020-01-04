@@ -11,6 +11,50 @@
     <h1>Estados</h1>
 
     <script>
-        // ...
+        function ajax(config){
+            const xhr = new XMLHttpRequest()
+
+            xhr.open(config.metodo, config.url, true)
+
+            xhr.onreadystatechange = e =>{
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        config.sucesso(xhr.responseXML)
+                    } else if (xhr.status >= 400) {
+                        config.erro({
+                            codigo: xhr.status,
+                            texto: xhr.statusText
+                        })
+                    }
+                }
+            }
+
+            xhr.send()
+        }
+
+        ajax({
+            url: 'dados/estados.xml',
+            metodo: 'get',
+            sucesso(resposta){
+                const estados = resposta.getElementsByTagName('estado')
+                const nomes = Array.from(estados).reduce( 
+                    (html, estado)=> html + `<li> ID: ${estado.attributes.id.value} 
+                        Nome: ${estado.attributes.nome.value} 
+                        Sigla: ${estado.attributes.sigla.value}</li>` , ''
+                )
+                document.body.insertAdjacentHTML('beforeend', `<ul>${nomes}</ul>`)
+            },
+            erro(e){
+                //const msg = document.createTextNode(`${e.codigo}: ${e.texto}`)// another way
+                // const msg = document.createTextNode("ARQUIVO NÃO ENCONTRADO")
+                // document.body.appendChild(msg)
+                // OTHER WAY
+                const paragrafo = document.createElement('p')
+
+                //paragrafo.innerHTML= `${e.codigo}: ${e.texto}` // other way
+                paragrafo.innerHTML= "ARQUIVO NÃO ENCONTRADO"
+                document.body.appendChild(paragrafo)
+            }
+        })
     </script>
 </body>
