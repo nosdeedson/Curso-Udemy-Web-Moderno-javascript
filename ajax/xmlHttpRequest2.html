@@ -18,10 +18,42 @@
 </head>
 
 <body class="conteudo exercicio">
-    <input type="file" name="arquivo" />
+    <input type="file" name="arquivo" /> 
+    <!-- o name tem que receber o mesmo valor que a função "single" recebeu no arquivo do servidor -->
+    <!-- caso contrario não funciona -->
     <div class="progresso"></div>
 
     <script>
-        // ...
+        function ajaxUpload(config){
+            const xhr = new XMLHttpRequest()
+
+            if(xhr.upload){
+                xhr.upload.onprogress = e =>{
+                    const atual = e.loaded
+                    const total = e.total
+                    const percetual = Math.floor(atual / total * 100)
+                    config.progresso({ atual, total, percetual})
+                }
+            }
+            xhr.open("post", config.url, true) 
+            // esta linha acima define que vai ser uma rerquisição assíncrona, quando false é síncrona 
+            xhr.send(config.formData)
+        }
+
+        document.querySelector('input[type=file]').onchange = e =>{
+            const formData = new FormData()
+            const inputFile = e.target
+            formData.append(inputFile.name, inputFile.files[0])
+            // e.target pega o evento do input, neste caso do tipo file, o e.target.name pega o valor de name
+
+            ajaxUpload({
+                url: "upload",
+                formData: formData,
+                progresso(dados){
+                    const progresso = document.querySelector('.progresso')
+                    progresso.innerHTML= JSON.stringify(dados)
+                }
+            })
+        }
     </script>
 </body>
