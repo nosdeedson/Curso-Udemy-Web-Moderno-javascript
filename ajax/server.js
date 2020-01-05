@@ -30,5 +30,38 @@ app.post('/upload', (req, resp) => {
         resp.end('CONCLUÍDO COM SUCESSO')
     })
 })
+
+app.post('/formulario', (requisicao, resposta) =>{
+    // resposta.send({
+    //     ...requisicao.body,
+    //     id: 1
+    // })
+    const json = requisicao.body
+    
+    let nome = json.nome
+    let sobrenome = json.sobrenome
+    
+    json.id= 1
+    nome = nome.toUpperCase()
+    sobrenome = sobrenome.toUpperCase()
+    json.nome = nome
+    json.sobrenome = sobrenome
+    json.ajax = false
+        
+    resposta.send(json)
+    
+})
+
+app.get('/parOuImpar', ( requisicao, resposta) =>{
+    // formas de receber requisição no NODE
+    //requisicao.body
+    //requisicao.query
+    //requisicao.params
+
+    const par = parseInt(requisicao.query.numero) % 2 === 0
+    resposta.send( {
+        resultado: par ? 'par' : 'impar'
+    })
+})
 app.listen( 8080, () => console.log( " servidor rodando"))
 
