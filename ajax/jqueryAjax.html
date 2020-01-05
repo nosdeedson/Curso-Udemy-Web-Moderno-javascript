@@ -14,6 +14,37 @@
     <div id="post"></div>
 
     <script>
-        // ...
+         
+        function exibirResultado( id, dados){
+            const texto = JSON.stringify(dados)
+            document.getElementById(id).innerHTML = texto
+        }
+        $.ajax({
+            url: 'parOuImpar',
+            data:{
+                numero: 5
+            },
+            success( data){
+                exibirResultado('get',data)
+            },
+            error(e){
+                exibirResultado('get', "PÁGINA NÃO ENCONTRADA")
+            }
+        })
+        // As funções "success" e "error" são nomes padrões devem ser usadas assim caso contrário não funciona
+        $.ajax({
+            url: 'formulario2',
+            method: 'post',
+            data:{
+                nome: 'edson jose',
+                sobrenome: 'souza'
+            },
+            success(data){
+                exibirResultado('post', data)
+            },
+            error(e){
+                exibirResultado('post', `CÓDIGO DE ERRO DO SERVIDOR: ${e.status}, RESULTADO: ${e.statusText}`)
+            }
+        })
     </script>
 </body>
