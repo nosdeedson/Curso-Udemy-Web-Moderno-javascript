@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Lucineia Souza",
+      "email": "lu@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Edson Souza",
+      "email": "souza@gmail.com"
+    },
+    {
+      "name": "Jussara Vasconcelos",
+      "email": "jussara@email.com",
+      "id": 3
+    },
+    {
+      "name": "juca da silva",
+      "email": "juca@email.com",
+      "id": 4
+    }
+  ]
+}
