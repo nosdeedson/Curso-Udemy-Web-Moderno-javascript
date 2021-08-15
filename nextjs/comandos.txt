@@ -1,0 +1,7 @@
+criar projeto => npx create-next-app nomeApp
+
+iniciar => npm run dev
+
+build => npm run build
+
+start em production => npm start
