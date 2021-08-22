@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Binding</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <p>
+            <a href="{{link}}">Canal?</a>
+        </p>
+        <p>
+            <a target="_blank" v-bind:href="link">canal</a>
+        </p>
+        <p>
+            <a target="_blank" :href="link">canal</a>
+        </p>
+        <p>
+            <input type="text" name="" id="" v-model="nome">
+        </p>
+        <p>
+            <span>{{nome}}</span>
+        </p>
+        <p>
+            <input type="text" name="" id="" :value="nome"><br>
+            <span>{{nome}}</span>
+        </p>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data:{
+                nome: 'maria',
+                link:'https://www.youtube.com/channel/UCcMcmtNSSQECjKsJA1XH5MQ'
+            },
+            watch:{
+                nome(novoValor){
+                    console.log(novoValor.toUpperCase())
+                }
+            }
+        })
+    </script>
+</body>
+</html>
