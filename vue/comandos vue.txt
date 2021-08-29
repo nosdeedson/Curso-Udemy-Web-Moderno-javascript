@@ -1,0 +1,8 @@
+instalar
+sudo npm i -g @vue/cli
+criar projeto
+vue create appname
+
+após criar o projeto
+apagar a pasta src, criar novamento e criar o arquivo main.js, 
+criar o componente App.vue
