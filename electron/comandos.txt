@@ -1,0 +1,6 @@
+vue create nomeAolicação
+vue add vuetify -> instala a biblioteca de components do vue
+vue add electron-builder instala o electron
+cat package.json
+como rodar com electron
+npm rn electron:serve
