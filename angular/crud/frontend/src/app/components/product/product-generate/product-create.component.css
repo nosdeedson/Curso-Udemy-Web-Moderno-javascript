@@ -1,0 +1,14 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    margin-right: 3%;
+    margin-top: 2%;
+}
+
+.posicaoBotoesForm{
+    display: flex;
+    justify-content: flex-end;
+}

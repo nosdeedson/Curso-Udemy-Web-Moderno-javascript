@@ -1,0 +1,25 @@
+npm init -y -> cria o package.json
+npm i json-server
+
+instalar o cli do angular
+sudo npm i -g @angular/cli
+
+criar o projeto
+ng new nome-projeto --minimal
+minimal cria o projeto sem o pacote de teste
+
+iniciar a aplicação 
+npm start
+
+adicionar o Material
+ng add @angular/material
+
+criar component
+ng generate component pasta/nomeComponent forma abreviada => ng g c pasta/component
+
+criar diretivas 
+ng generate directive pasta/nomeDiretiva forma abreviada => ng g d pasta/nomeDiretiva
+
+
+criar service
+ng generate service pasta/nomeService forma resumida ng g s pasta/nomeservice
