@@ -4,11 +4,14 @@ form{
 }
 
 button{
-    margin-right: 3%;
-    margin-top: 2%;
+    margin: 2% 3% 0 0;
 }
 
 .posicaoBotoesForm{
     display: flex;
     justify-content: flex-end;
+}
+
+.titleBottom{
+    margin-bottom: 3%;
 }

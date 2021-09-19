@@ -1,16 +1,15 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-import {MatSnackBar} from '@angular/material/snack-bar';
-import { EMPTY, Observable } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { EMPTY } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
 import { catchError, map } from 'rxjs/operators';
 import { Product } from './product.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
-
+export class ProductServiceService {
   baseUrl = 'http://localhost:3001/products';
 
   constructor(private snackBar: MatSnackBar,
@@ -55,5 +54,4 @@ export class ProductService {
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<Product>(url);
   }
-
 }

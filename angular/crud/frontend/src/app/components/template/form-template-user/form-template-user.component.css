@@ -1,0 +1,17 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    margin: 3% 2% 0 0;
+}
+
+.posicoesBotoes{
+    display: flex;
+    justify-content: end;
+}
+
+.titulo{
+    margin-bottom: 3%;
+}

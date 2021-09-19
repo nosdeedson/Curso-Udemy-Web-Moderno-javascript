@@ -19,31 +19,38 @@
       "name": "Lapis Preto Básico",
       "price": "1.50",
       "id": 4
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Edson Jose de Souza",
+      "email": "josemariazumira@gmail.com"
     },
     {
-      "name": "teste menssagem",
-      "price": 1,
+      "id": 2,
+      "name": "Lucineia souza",
+      "email": "lucineia@gmail.com"
+    },
+    {
+      "name": "Glauciane Campos",
+      "email": "glau@email.com",
+      "id": 3
+    },
+    {
+      "name": "Jussara Vasconcelos",
+      "email": "jussara@email.com",
       "id": 5
     },
     {
-      "name": "teste",
-      "price": 2,
-      "id": 6
+      "name": "Glauciane Campos",
+      "email": "glau@email.com",
+      "id": 11
     },
     {
-      "name": "teste",
-      "price": 0,
-      "id": 7
-    },
-    {
-      "name": "teste vazio",
-      "price": 0,
-      "id": 8
-    },
-    {
-      "id": 9,
-      "name": "teste aceitou vazio",
-      "price": 2
+      "name": "teste teste",
+      "email": "teste2@email",
+      "id": 12
     }
   ]
 }

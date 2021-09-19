@@ -25,3 +25,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: red;
     color: white;
 }
+
+
+.posicaoBotoesForm{
+    display: flex;
+    justify-content: flex-end;
+}
+

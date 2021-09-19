@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductServiceService } from '../product-service.service';
 import { Product } from '../product.model';
-import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-read',
@@ -11,7 +12,8 @@ export class ProductReadComponent implements OnInit {
 
   produtos : Product[] = [];
   displayedColumns = ['id', 'name', 'price', 'actions']
-  constructor(private productService : ProductService) { }
+  constructor(private productService : ProductServiceService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.productService.read().subscribe(sucesso =>{
@@ -19,4 +21,13 @@ export class ProductReadComponent implements OnInit {
     })
   }
 
+  update(id : string) : void{
+    this.router.navigate([`products/update/${id}/update`])
+  }
+
+  delete(id : string) : void{
+    this.router.navigate([`products/delete/${id}/delete`])
+  }
+
+  
 }

@@ -22,21 +22,28 @@ import {HttpClientModule} from '@angular/common/http'
 import {FormsModule} from '@angular/forms'
 
 import { HomeComponent } from './views/home/home.component';
-import { ProductCreateComponent } from './components/product/product-generate/product-create.component';
 import { RedDirective } from './directives/red.directive';
 import { ForDirective } from './directives/for.directive';
 
 import { ProductCrudComponent } from './views/product-crud/product-crud.component';
-import { ProductReadComponent } from './components/product/product-read/product-read.component';
-import { ProductRead2Component } from './components/product/product-read2/product-read2.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 
 import localept from "@angular/common/locales/pt";
 import {registerLocaleData} from '@angular/common';
-import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
+import { UserComponent } from './views/users/user/user.component';
+import { UserReadComponent } from './components/user/user-read/user-read.component';
+import { UserCreateComponent } from './components/user/user-create/user-create.component';
+import { FormTemplateUserComponent } from './components/template/form-template-user/form-template-user.component';
+import { UserUpdateComponent } from './components/user/user-update/user-update.component';
+import { UserDeleteComponent } from './components/user/user-delete/user-delete.component';
+import { FormProductComponent } from './components/template/form-template-product/form-product/form-product.component';
+import { ProductReadComponent } from './components/product/product-read/product-read.component';
+import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { ProductDeleteComponent } from './components/product/product-delete/product-delete.component';
+import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
+import { ProductReadPaginateComponent } from './components/product/product-read-paginate/product-read-paginate.component';
 registerLocaleData(localept)
 
 @NgModule({
@@ -49,11 +56,18 @@ registerLocaleData(localept)
     ProductCrudComponent,
     RedDirective,
     ForDirective,
-    ProductCreateComponent,
+    UserComponent,
+    UserReadComponent,
+    UserCreateComponent,
+    FormTemplateUserComponent,
+    UserUpdateComponent,
+    UserDeleteComponent,
+    FormProductComponent,
     ProductReadComponent,
-    ProductRead2Component,
+    ProductCreateComponent,
+    ProductDeleteComponent,
     ProductUpdateComponent,
-    ProductDeleteComponent
+    ProductReadPaginateComponent
   ],
   imports: [
     BrowserModule,
