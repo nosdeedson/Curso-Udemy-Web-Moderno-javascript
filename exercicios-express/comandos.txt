@@ -1,0 +1,29 @@
+criar o package.json => npm init -y
+
+instalar o express
+npm i --save express
+
+iniciar o servidor 
+node index.js ou nodemon index.js ou npm start (se o scprit de inicialiação for igual a start: nodemon)
+
+instalar o nodemon
+npm - --save-dev nodemon
+
+iniciar a aplicarion pelo script no package.json
+tirar teste e colocar start: nodemon
+
+instalar o nodemon globalmente
+npm i -g nodemon
+
+instalar o pm2 launcher para produçao
+npm i -g pm2 globalmente
+só no projeto 
+npm i --save pm2
+
+colocar no script
+"production" : "pm2 start index.js --name nome para a aplicação"
+iniciar a aplicação 
+npm run production
+
+instalar o body-parser
+npm - --save body-parser
