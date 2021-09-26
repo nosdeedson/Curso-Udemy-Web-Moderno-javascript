@@ -1,0 +1,8 @@
+comandos knex
+npx knex inint => criar arquivo knexfile.js
+
+criar tabela
+knex migrate:make create_table_users => criar arquivo das migrations
+
+knex migrate:latest => roda todas as migrations
+knex migrate:rollback => deleta as tabelas
