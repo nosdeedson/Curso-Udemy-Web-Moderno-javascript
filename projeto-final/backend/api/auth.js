@@ -37,8 +37,8 @@ module.exports = app =>{
             email: user.email,
             admin: user.admin,
             iat: now,
-            exp: now + 10 // 10 segundos
-            // exp: now + (60 * 60 * 24 * 3) //3 dias
+            // exp: now + 10 // 10 segundos
+            exp: now + (60 * 60 * 60 * 24 * 1) // 1 dias
         }
 
         const token = jwt.encode(payload, authSecret)

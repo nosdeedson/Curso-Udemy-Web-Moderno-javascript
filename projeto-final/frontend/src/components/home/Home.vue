@@ -46,7 +46,8 @@ export default {
     },
   },
   mounted() {
-    this.getStats();
+    if( this.$store.state.user)
+      this.getStats();
   },
 };
 </script>

@@ -48,6 +48,9 @@ export default {
 			
 			if( resposta){
 				this.$sotre.commit('setUser', userData)
+				if( this.$mq === 'xs' || this.$mq === 'sm'){
+                	this.$store.commit('toggleMenu')
+            	}
 			}else{
 				localStorage.removeItem(userKey)
 				this.$router.push({name:  '/auth'})
@@ -56,8 +59,9 @@ export default {
 		}
 	},
 	created(){
-		this.validatingToken()
+		this.validatingToken
 	}
+
 }
 </script>
 

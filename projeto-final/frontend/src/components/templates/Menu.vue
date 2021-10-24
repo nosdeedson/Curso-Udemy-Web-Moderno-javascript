@@ -28,6 +28,9 @@ export default {
                 name : 'articles',
                 params: {id : node.id}
             })
+            if( this.$mq === 'xs' || this.$mq === 'sm'){
+                this.$store.commit('toggleMenu')
+            }
         }
     },
     data: function(){
@@ -44,6 +47,9 @@ export default {
     },
     mounted(){
         this.$refs.tree.$on('node:selected', this.onNodeSelected)
+		if( this.$mq === 'xs' || this.$mq === 'sm' || this.$mq === 'md'){
+            this.$store.commit('toggleMenu', false)
+        }
     }
 }
 </script>

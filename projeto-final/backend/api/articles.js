@@ -2,7 +2,7 @@ const queries = require('./queries')
 module.exports = app =>{
 
     const { existsOrError, notExistsOrError, equalsOrError} = app.api.validation
-    const itensPerPage = 2;
+    const itensPerPage = 10;
 
     const get = (req, res) =>{
         const page = req.query.page || 1;
@@ -79,7 +79,7 @@ module.exports = app =>{
                 .update(article)
                 .where({id : article.id})
                 .then(_ => res.status(204).send())
-                .catch(error => res.status(500).send(error))
+                .catch(error => { console.log(error); res.status(500).send(error)})
         }else{
             app.db('articles')
                 .insert(article)

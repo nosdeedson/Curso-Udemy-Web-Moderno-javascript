@@ -25,7 +25,7 @@
         </div>
       </b-form>
       <hr>
-      <b-table hover striped :items="categories" :fields="fields">
+      <b-table hover responsive striped :items="categories" :fields="fields">
         <template slot="actions" slot-scope="data">
           <b-button variant="warning" class="mr-2" @click="loadCategory(data.item)" >
             <i class="fa fa-pencil"></i>

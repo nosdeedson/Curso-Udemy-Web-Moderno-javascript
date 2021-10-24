@@ -17,3 +17,9 @@ Vue.toasted.register(
     payload => !payload.msg ? 'Oops... Erro inesperado' : payload.msg,
     {type: 'error', icon: 'times'}
 )
+
+Vue.toasted.register(
+    'defaultUserDeslogado',
+    'Sua sessão expirou. Você foi deslogado!! Faça o login novamente.',
+    {type : 'info', icon : 'info-circle', duration: 10000}
+)

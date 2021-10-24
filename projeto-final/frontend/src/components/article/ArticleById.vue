@@ -2,7 +2,7 @@
     <div class="article-by-id">
         <PageTitle  icon="fa fa-folder-o"
          :main="article.name" :sub="article.description"></PageTitle>
-        <div class="content" v-html="article.content"></div>
+        <div class="article-content" v-html="article.content"></div>
     </div>
 </template>
 
@@ -10,6 +10,10 @@
 import {baseUrl} from '@/global';
 import axios from 'axios';
 import PageTitle from '../templates/PageTitle.vue'
+import 'highlightjs/styles/dracula.css'
+import hljs from 'highlightjs/highlight.pack' 
+
+
 export default {
 
     name: 'articleId',
@@ -23,6 +27,11 @@ export default {
         const url = `${baseUrl}/articles/${this.$route.params.id}`
         axios.get(url).then(resp =>{
             this.article = resp.data
+        })
+    },
+    updated(){
+        document.querySelectorAll('article-content pre').forEach(e =>{
+            hljs.highlightBlock(e)
         })
     }
 
