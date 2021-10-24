@@ -1,0 +1,1 @@
+rodar a aplicação => npm run serve
